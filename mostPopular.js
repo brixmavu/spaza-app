@@ -20,8 +20,8 @@ exports.popularProducts = function (fileName) {
         if(productsMap[prop] > max) {
         max = productsMap[prop];
         mostPopularProdct = {
-                prodName: prop,
-                    amount: max
+                Product: prop,
+                    Amount: max
             }
        }
     } 

@@ -18,6 +18,6 @@ exports.leastPopularCat =function (filename) {
           }
       }
   } 
-  console.log(leastCategory);
+  //console.log(leastCategory);
   return leastCategory;
 }

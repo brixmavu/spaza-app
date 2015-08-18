@@ -16,11 +16,11 @@ exports.leastPopularProducts = function (fileName) {
         if(productsMap[prop] < max) {
         max = productsMap[prop];
         leastPopularProdct = {
-                prodName: prop,
-                    amount: max
+                Product: prop,
+                    Amount: max
             }
        }
     } 
-    console.log(leastPopularProdct);
+    //console.log(leastPopularProdct);
     return leastPopularProdct;
 }
