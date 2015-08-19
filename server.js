@@ -16,13 +16,11 @@
 
    app.set('view engine', 'handlebars');
 
-   app.use(express.static('public'));
+   app.use(express.static('.'));
 
    // create a route
    app.get('/', function(req, res) {
-       res.render('home', {
-           layout: false
-       });
+       res.render('home');
    });
 
    app.get('/allProducts', function(req, res) {
