@@ -1,17 +1,17 @@
 body {
     background: #362f2d;
 }
-
+ 
 h1 {
     color: #656A7E;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 100px;
+    font-size: 50px;
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 1;
     text-align: center;
 }
-
+/*
 h2 {
     color: #BAA38F;
     font-family: 'Open Sans', sans-serif;
@@ -21,8 +21,13 @@ h2 {
     margin: 0 0 72px;
     text-align: center;
 }
+ */
 
+th{color: red;}
+
+td{color:blue;}
 /* 🃏🃏🃏🃏Navigation Bar Begins🃏🃏🃏 */
+
 
 /* Main Dark Menu Unordered List First Level Style */
 
@@ -33,6 +38,7 @@ ul.dark_menu {
     font-size: 14px;
     line-height: 14px;
 }
+
 
 /* Clears all floated List Items */
 
@@ -46,6 +52,7 @@ ul.dark_menu:after {
     height: 0;
 }
 
+
 /* First Level List Items Style */
 
 ul.dark_menu li {
@@ -53,6 +60,7 @@ ul.dark_menu li {
     margin: 0 0 0 10px;
     position: relative;
 }
+
 
 /* First List Item in First Level Style */
 
@@ -87,6 +95,7 @@ ul.dark_menu li a:link {
     transition: all 1s ease;
 }
 
+
 /* List Items Links Hover State Style */
 
 ul.dark_menu li a:hover {
@@ -102,6 +111,7 @@ ul.dark_menu li a:hover {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
+
 
 /* List Items Links Active and Selected State Style */
 
@@ -121,11 +131,13 @@ ul.dark_menu li a:active {
     transition: all 1s ease;
 }
 
+
 /* Sub Menu Unordered List Second Level Style */
 
 ul.dark_menu li ul {
     display: none;
 }
+
 
 /* Sub Menu Unordered List Second Level Style
     When Parent List Item is Hovered */
@@ -147,6 +159,7 @@ ul.dark_menu li:hover ul {
     border-radius: 4px;
 }
 
+
 /* Before Second Level Unordered List Style */
 
 ul.dark_menu li ul:before {
@@ -160,6 +173,7 @@ ul.dark_menu li ul:before {
     width: 100%;
 }
 
+
 /* Second Level Menu List Items Style */
 
 ul.dark_menu li ul li {
@@ -169,6 +183,7 @@ ul.dark_menu li ul li {
     border-top: 1px solid #3a3230;
 }
 
+
 /* First List Item in Second Level Menu Style */
 
 ul.dark_menu li ul li:first-child {
@@ -176,11 +191,13 @@ ul.dark_menu li ul li:first-child {
     border-top: 0 none;
 }
 
+
 /* Last List Item in Second Level Menu Style */
 
 ul.dark_menu li ul li:last-child {
     border-bottom: 0 none;
 }
+
 
 /* Second Level List Items Links Style */
 
@@ -201,11 +218,13 @@ ul.dark_menu li ul li a:link {
     border-radius: 0px;
 }
 
+
 /* Second Level List Items Links Hover State Style */
 
 ul.dark_menu li ul li a:hover {
     text-decoration: underline;
     background: #2a2523;
 }
+
 
 /* 🃏🃏🃏🃏Navigation Bar Ends🃏🃏🃏 */

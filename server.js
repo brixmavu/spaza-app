@@ -39,7 +39,7 @@
 
    app.get('/popularC', function(req, res) {
        var productNames = popularCategory.mostPopularCategory('Nelisa Sales History.csv');
-       res.render('mostPopular', {
+       res.render('mostPopular1', {
            products: productNames
        });
    });
@@ -53,7 +53,7 @@
 
    app.get('/leastPopularP', function(req, res) {
        var productNames = leastPopularP.leastPopularProducts('Nelisa Sales History.csv');
-       res.render('leastPopular', {
+       res.render('leastPopular1', {
            products: productNames
        });
    });

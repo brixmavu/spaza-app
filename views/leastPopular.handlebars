@@ -1,5 +1,14 @@
-<h1>least Popular</h1>
-{{#each products}}
-	<h2>{{@key}} - {{this}}</h2>
+<h1>Least Popular Category</h1>
+<table class="table">
+	<thead>
+		<th>Category</th>
+		<th>Amount</th>
+	</thead>
+{{#products}}
+	<tr>
+		<td>{{Category}}</td>
+		<td>{{Amount}}</td>
+	</tr>
+{{/products}}
 
-{{/each}}
+</table>

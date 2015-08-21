@@ -1,5 +1,13 @@
 <h1>All Products</h1>
+<table class="table">
+	<thead>
+		<th>Product Name</th>
+		<th>Amount</th>
+	</thead>	
 {{#each products}}
-	<h2>{{@key}} - {{this}}</h2>
-
+<tr>
+<td>{{@key}}</td>
+<td>{{this}}</td>	
+</tr>
 {{/each}}
+</table>
