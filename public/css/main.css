@@ -9,7 +9,7 @@ h1 {
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 1;
-    text-align: center;
+    text-align: left;
 }
 /*
 h2 {
@@ -23,9 +23,26 @@ h2 {
 }
  */
 
-th{color: red;}
+table {
+    background-color: #efefef;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999999;
+}
 
-td{color:blue;}
+th {
+    background-color: #cccccc;
+    font-weight: bold;
+    padding: 5px;
+}
+
+td {
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999999;
+}
+
 /* 🃏🃏🃏🃏Navigation Bar Begins🃏🃏🃏 */
 
 
