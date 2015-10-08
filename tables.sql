@@ -37,10 +37,9 @@
 	DROP TABLE IF EXISTS sales;
 	CREATE TABLE sales (
 	sales_id int NOT NULL auto_increment,
-	sales_name varchar(30),
+	sale_date date,
 	PRIMARY KEY(sales_id),
-	qty int,
-	sales_price int,
-	products_id int NOT NULL,
-	FOREIGN KEY (products_id) REFERENCES products(products_id)
+	qty int(30),
+	sales_price int(30),
+	products_id int(30) NOT NULL
 	);
