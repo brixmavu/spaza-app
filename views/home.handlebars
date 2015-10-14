@@ -1,2 +1,23 @@
-<h1>Nelisa Spaza</h1>
+<form action="/products/add" method="POST">
+	Description: <input type="text" name="products_name" value="{{products_name}}">
+	{{#categories}}
+	<select>
+		<option value="{{category_id}}">{{category_name}}</option>
+	</select>
+	{{/categories}}
+	<input type="submit">
+</form>
+
+<h1>Products</h1>
+<a href="/products/add">Add product</a>
+{{#products}}
+  <h2>{{products_name}}</h2>
+  <h2>{{category_name}}</h2>
+  <a href="/products/edit/{{products_id}}">Edit</a>
+  <a href="/products/delete/{{products_id}}">Delete</a>
+{{/products}}
+
+{{#no_products}}
+  <p>No products available yet. Add some above.</p>
+{{/no_products}}
 
