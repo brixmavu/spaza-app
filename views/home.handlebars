@@ -1,14 +1,16 @@
+<h1>Products</h1>
 <form action="/products/add" method="POST">
 	Description: <input type="text" name="products_name" value="{{products_name}}">
-	{{#categories}}
-	<select>
+	
+	<select name="category_id">
+		{{#categories}}
 		<option value="{{category_id}}">{{category_name}}</option>
+		{{/categories}}
 	</select>
-	{{/categories}}
+	
 	<input type="submit">
 </form>
 
-<h1>Products</h1>
 <a href="/products/add">Add product</a>
 {{#products}}
   <h2>{{products_name}}</h2>
