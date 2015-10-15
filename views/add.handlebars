@@ -2,10 +2,11 @@
 
 <form action="/products/add" method="POST">
 	Description: <input type="text" name="products_name" value="{{products_name}}">
-	{{#categories}}
+	
 	<select>
+	{{#categories}}
 		<option value="{{category_id}}">{{category_name}}</option>
-	</select>
 	{{/categories}}
-	<input type="submit">
+	</select>
+		<input type="submit">
 </form>

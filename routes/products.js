@@ -7,11 +7,14 @@ exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		connection.query('SELECT * from products', [], function(err, results) {
+		connection.query('SELECT * from categories', [], function(err, categories) { 
         if (err) return next(err);
     		res.render( 'home', {
 					no_products : results.length === 0,
 					products : results,
+					categories : categories
     		});
+    	});
       });
 	});
 };
@@ -26,6 +29,7 @@ exports.add = function (req, res, next) {
 		var input = JSON.parse(JSON.stringify(req.body));
 		var data = {
       		products_name : input.products_name,
+      		category_id : input.category_id
   	};
 		connection.query('insert into products set ?', data, function(err, results) {
   		if (err) return next(err);
@@ -37,7 +41,7 @@ exports.add = function (req, res, next) {
 exports.get = function(req, res, next){
 	var products_id = req.params.products_id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM products WHERE products_id = ?', [products_products_id], function(err,rows){
+		connection.query('SELECT * FROM products WHERE products_id = ?', [products_id], function(err,rows){
 			if(err) return next(err);
 			res.render('edit',{page_title:"Edit Customers - Node.js", data : rows[0]});
 		});

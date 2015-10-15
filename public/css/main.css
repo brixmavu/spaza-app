@@ -47,7 +47,7 @@ td {
 
 
 /* Main Dark Menu Unordered List First Level Style */
-
+/* 
 ul.dark_menu {
     list-style: none;
     padding: 0;
@@ -57,7 +57,7 @@ ul.dark_menu {
 }
 
 
-/* Clears all floated List Items */
+Clears all floated List Items
 
 ul.dark_menu:after {
     content: "";
@@ -70,7 +70,7 @@ ul.dark_menu:after {
 }
 
 
-/* First Level List Items Style */
+First Level List Items Style
 
 ul.dark_menu li {
     float: left;
@@ -79,14 +79,14 @@ ul.dark_menu li {
 }
 
 
-/* First List Item in First Level Style */
+First List Item in First Level Style
 
 ul.dark_menu li:first-child {
     margin: 0;
 }
 
 
-/* List Items Links Style */
+List Items Links Style
 
 ul.dark_menu li a,
 ul.dark_menu li a:link {
@@ -94,18 +94,18 @@ ul.dark_menu li a:link {
     text-decoration: none;
     display: block;
     padding: 10px 26px;
-    /* Text Shadow */
+    Text Shadow
     text-shadow: 0 1px 0 #4b433e;
-    /* Gradient Background */
+    Gradient Background
     background: #362f2c;
-    /* W3C */
-    /* Border Radius */
+    W3C
+    Border Radius
     -moz-border-radius: 4px;
     border-radius: 4px;
-    /* Box Shadows */
+    Box Shadows
     -moz-box-shadow: inset 0 1px 0 #564b46, 0 1px 1px #181514;
     box-shadow: inset 0 1px 0 #564b46, 0 1px 1px #181514;
-    /* Transition Effect */
+    Transition Effect
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
@@ -113,16 +113,16 @@ ul.dark_menu li a:link {
 }
 
 
-/* List Items Links Hover State Style */
+List Items Links Hover State Style
 
 ul.dark_menu li a:hover {
     color: #73635e;
-    /* Text Shadow */
+    Text Shadow
     text-shadow: 0 1px 1px #000;
-    /* Gradient Background */
+    Gradient Background
     background: #282321;
-    /* W3C */
-    /* Transition Effect */
+    W3C
+    Transition Effect
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
@@ -130,18 +130,18 @@ ul.dark_menu li a:hover {
 }
 
 
-/* List Items Links Active and Selected State Style */
+List Items Links Active and Selected State Style
 
 ul.dark_menu li a.selected,
 ul.dark_menu li a:active {
     color: #73635e;
     background: #282321;
-    /* Text Shadow */
+    Text Shadow
     text-shadow: 0 1px 1px #000;
-    /* Box Shadows */
+    Box Shadows
     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #5e524f;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #5e524f;
-    /* Transition Effect */
+    Transition Effect
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
@@ -149,15 +149,15 @@ ul.dark_menu li a:active {
 }
 
 
-/* Sub Menu Unordered List Second Level Style */
+Sub Menu Unordered List Second Level Style
 
 ul.dark_menu li ul {
     display: none;
 }
 
 
-/* Sub Menu Unordered List Second Level Style
-    When Parent List Item is Hovered */
+Sub Menu Unordered List Second Level Style
+    When Parent List Item is Hovered
 
 ul.dark_menu li:hover ul {
     position: absolute;
@@ -168,16 +168,16 @@ ul.dark_menu li:hover ul {
     padding: 5px 0;
     list-style: none;
     background: #282321;
-    /* Box Shadows */
+    Box Shadows
     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #5e524f;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 #5e524f;
-    /* Border Radius */
+    Border Radius
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
 
 
-/* Before Second Level Unordered List Style */
+Before Second Level Unordered List Style
 
 ul.dark_menu li ul:before {
     content: " ";
@@ -191,7 +191,7 @@ ul.dark_menu li ul:before {
 }
 
 
-/* Second Level Menu List Items Style */
+Second Level Menu List Items Style
 
 ul.dark_menu li ul li {
     float: none;
@@ -201,7 +201,7 @@ ul.dark_menu li ul li {
 }
 
 
-/* First List Item in Second Level Menu Style */
+First List Item in Second Level Menu Style
 
 ul.dark_menu li ul li:first-child {
     margin: 0 10px;
@@ -209,14 +209,14 @@ ul.dark_menu li ul li:first-child {
 }
 
 
-/* Last List Item in Second Level Menu Style */
+Last List Item in Second Level Menu Style
 
 ul.dark_menu li ul li:last-child {
     border-bottom: 0 none;
 }
 
 
-/* Second Level List Items Links Style */
+Second Level List Items Links Style
 
 ul.dark_menu li ul li a,
 ul.dark_menu li ul li a:link {
@@ -225,23 +225,23 @@ ul.dark_menu li ul li a:link {
     background: transparent none;
     padding: 10px 20px 10px 5px;
     white-space: nowrap;
-    /* Text Shadow */
+    Text Shadow
     text-shadow: 0 1px 2px #000;
-    /* Box Shadows */
+    Box Shadows
     -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    /* Border Radius */
+    Border Radius
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
 
 
-/* Second Level List Items Links Hover State Style */
+Second Level List Items Links Hover State Style
 
 ul.dark_menu li ul li a:hover {
     text-decoration: underline;
     background: #2a2523;
 }
-
+ */
 
 /* 🃏🃏🃏🃏Navigation Bar Ends🃏🃏🃏 */
