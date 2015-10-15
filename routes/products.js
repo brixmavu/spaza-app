@@ -31,7 +31,7 @@ exports.add = function (req, res, next) {
       		products_name : input.products_name,
       		category_id : input.category_id
   	};
-		connection.query('insert into products set ?', data, function(err, results) {
+		connection.query('insert into products set ?', data, function(err, results, categories) {
   		if (err) return next(err);
 			res.redirect('/products');
 		});
