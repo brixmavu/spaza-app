@@ -1,5 +1,5 @@
 body {
-    background: red;
+    background: ;
 }
  
 h1 {
@@ -11,17 +11,15 @@ h1 {
     line-height: 1;
     text-align: left;
 }
-/*
-h2 {
+
+ h2 {
     color: #BAA38F;
     font-family: 'Open Sans', sans-serif;
     font-size: 30px;
     font-weight: 300;
     line-height: 32px;
     margin: 0 0 72px;
-    text-align: center;
-}
- */
+} 
 
 table {
     background-color: #efefef;
