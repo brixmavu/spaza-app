@@ -1,0 +1,24 @@
+<div class="table-responsive">
+<table class ="table table-striped" >
+	<thead>
+		<tr>
+			<th>Product id</th>
+			<th>Product name</th>
+			<th>Category name</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#products}}
+		<tr>
+			<td>{{products_id}}</td>
+			<td>{{products_name}}</td>
+			<td>{{category_name}}</td>
+	
+			<td><a href="/products/edit/{{products_id}}">Edit</a></td>
+			<td><a href="/products/delete/{{products_id}}">Delete</a></td>
+		</tr>
+		{{/products}}
+	</tbody>
+	
+</table>
+</div>

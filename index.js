@@ -1,11 +1,14 @@
 'use strict';
-
+//Module dependencies.
 var express = require('express'),
     exphbs = require('express-handlebars'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
-    products = require('./routes/products');
+    home = require('./routes/home')
+    products = require('./routes/products'),
+    sales = require('./routes/sales'),
+    purchase = require('./routes/purchase');
 
 var app = express();
 
@@ -42,7 +45,7 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', products.show);
+app.get('/', home.home);
 app.get('/products', products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);

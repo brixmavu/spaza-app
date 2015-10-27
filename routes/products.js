@@ -1,20 +1,16 @@
-/***
- * A very basic CRUD example using MySQL
- */
-
 exports.show = function(req, res, next) {
     req.getConnection(function(err, connection) {
         if (err) return next(err);
-        connection.query('SELECT * from products', [], function(err, results) {
+        connection.query('SELECT products.products_id, products.product_name, categories.category_name FROM Products INNER JOIN categories ON categories.category_id = products.category_id ORDER BY products_id', [], function(err, results) {
             if (err) return next(err);
-            res.render('home', {
+            res.render('products', {
                 no_products: results.length === 0,
                 products: results,
             });
-
         });
     });
 };
+
 
 exports.showAdd = function(req, res) {
     req.getConnection(function(err, connection) {
