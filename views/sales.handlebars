@@ -1,0 +1,31 @@
+<a href="/sales/add" class="btn btn-default" role="button">+ Add Sales</a>
+<div class="table-responsive">
+<table class ="table table-striped" >
+	<thead>
+		<tr>
+			<th>Sales id</th>
+			<th>Product Name</th>
+			<th>Date</th>
+			<th>Quantity</th>
+			<th>Sales Price</th>
+			<th>Product id</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#sales}}
+		<tr>
+			<td>{{sales_id}}</td>
+			<td>{{products_name}}</td>
+			<td>{{sale_date}}</td>
+			<td>{{qty}}</td>
+			<td>{{sales_price}}</td>
+			<td>{{products_id}}</td>
+	
+			<td><a href="/sales/edit/{{sales_id}}">Edit</a></td>
+			<td><a href="/sales/delete/{{sales_id}}">Delete</a></td>
+		</tr>
+		{{/sales}}
+	</tbody>
+	
+</table>
+</div>

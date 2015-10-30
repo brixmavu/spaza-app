@@ -54,7 +54,13 @@ app.post('/products/add', products.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:products_id', products.delete);
 
-
+app.get('/sales', sales.showSales);
+app.get('/sales/edit/:sales_id', sales.getSales);
+app.post('/sales/update/:sales_id', sales.updateSales);
+app.get('/sales/add', sales.showAddSales);
+app.post('/sales/add', sales.addSales);
+//this should be a post but this is only an illustration of CRUD - not on good practices
+app.get('/sales/delete/:sales_id', sales.delete);
 
 app.use(errorHandler);
 

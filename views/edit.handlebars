@@ -1,8 +1,15 @@
 <h1>Edit</h1>
 
 {{#data}}
-<form action="/products/update/{{products_id}}" method="POST">
-	Description: <input type="text" name="products_name" value="{{products_name}}">	
-	<input type="submit">
+<form class="form-inline" action="/products/update/{{products_id}}" method="POST">
+	<label for="">Description:</label> <input class="form-control input-sm" input type="text" name="products_name" value="{{products_name}}">
+
+	<select class="form-control input-sm" name="category_id">
+		{{#categories}}
+		<option value="{{category_id}}">{{category_name}}</option>
+		{{/categories}}
+	</select>
+
+	<input class="btn btn-default"  type="submit">
 </form>
 {{/data}}
