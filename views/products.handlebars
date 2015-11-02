@@ -1,4 +1,5 @@
-<a href="/products/add" class="btn btn-default" role="button">+ Add Products</a>
+<a href="/products/add" class="btn btn-default" role="button"> 
+<span class="glyphicon glyphicon-plus" area-hidden="true"></span> Add Products</a>
 <div class="table-responsive">
 <table class ="table table-striped" >
 	<thead>
@@ -15,8 +16,8 @@
 			<td>{{products_name}}</td>
 			<td>{{category_name}}</td>
 	
-			<td><a href="/products/edit/{{products_id}}">Edit</a></td>
-			<td><a href="/products/delete/{{products_id}}">Delete</a></td>
+			<td><a href="/products/edit/{{products_id}}"><span class="glyphicon glyphicon-pencil" area-hidden="true"></span> Edit</a></td>
+			<td><a href="/products/delete/{{products_id}}"><span class="glyphicon glyphicon-trash" area-hidden="true"></span> Delete</a></td>
 		</tr>
 		{{/products}}
 	</tbody>
