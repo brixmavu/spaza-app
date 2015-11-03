@@ -27,11 +27,13 @@
 	CREATE TABLE purchases (
 	purchases_id int NOT NULL auto_increment,
 	PRIMARY KEY(purchases_id),
-	purchases_name varchar(30),
 	qty int,
 	cost_price int,
+	date date NOT NULL,
+	suppliers_id int NOT NULL,
 	products_id int NOT NULL,
-	FOREIGN KEY (products_id) REFERENCES products(products_id)
+	FOREIGN KEY (products_id) REFERENCES products(products_id),
+	FOREIGN KEY (suppliers_id) REFERENCES suppliers(suppliers_id)
 	);
 	
 	DROP TABLE IF EXISTS sales;
