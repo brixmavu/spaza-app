@@ -2,7 +2,7 @@ exports.showSales = function(req, res, next) {
     req.getConnection(function(err, connection) {
         if (err) return next(err);
         connection.query('SELECT * FROM sales, products WHERE sales.products_id = products.products_id', [], function(err, results) {
-            res.render('sales', {
+                        res.render('sales', {
                 no_sales: results.length === 0,
                 sales: results
             });
@@ -10,10 +10,11 @@ exports.showSales = function(req, res, next) {
     });
 };
 
-exports.showAddSales = function(req, res) {
+exports.showAddSales = function(req, res, next) {
     req.getConnection(function(err, connection) {
         if (err) return next(err);
-        connection.query('SELECT * FROM products', [], function(err, sales) {
+        connection.query('SELECT * FROM products', [], function(err, products) {
+            /*console.log("Products", products);*/
             if (err) return next(err);
             res.render('addSales', {
                 products: products

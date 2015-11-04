@@ -3,6 +3,11 @@
 	<label for="date">Date </label>  <input class="form-control input-sm" type="date" date="sale_date" value="{{sale_date}}">
 	<label for="Quantity">Quantity</label> <input class="form-cotrol input-sm" type="number" quantity="qty" value="{{qty}}">
 	<label for="Sales Price">Sales Price</label> <input class="form-cotrol input-sm" type="number" Sales Price="sales_price" value="{{sales_price}}">
-	<label for="Product">Product</label> <input class="form-control input-sm" type="text" product ="products_name" value="{{products_name}}">
+	<label for="Product">Product</label> 
+	<select class="form-control input-sm" id="">
+		{{#each}}
+		
+		{{/each}}
+	</select>
 	<input class="btn btn-default" type="submit">
 </form>
