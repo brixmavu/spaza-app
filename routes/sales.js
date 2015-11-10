@@ -28,7 +28,7 @@ exports.addSales = function(req, res, next) {
         if (err) return next(err);
         var input = JSON.parse(JSON.stringify(req.body));
         var data = {
-            product_id: input.product_id,
+            product_id: input.products_id,
             date: input.sale_date,
             sales_price: input.sales_price,
             qty: input.qty,
