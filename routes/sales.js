@@ -28,8 +28,8 @@ exports.addSales = function(req, res, next) {
         if (err) return next(err);
         var input = JSON.parse(JSON.stringify(req.body));
         var data = {
-            product_id: input.products_id,
-            date: input.sale_date,
+            products_id: input.products_id,
+            sale_date: input.sale_date,
             sales_price: input.sales_price,
             qty: input.qty,
         };
@@ -44,10 +44,13 @@ exports.getSales = function(req, res, next) {
     var sales_id = req.params.sales_id;
     req.getConnection(function(err, connection) {
         connection.query('SELECT * FROM sales WHERE sales_id = ?', [sales_id], function(err, rows) {
+            connection.query('SELECT * FROM products', [], function(err, results){
             if (err) return next(err);
-            res.render('edit', {
+            res.render('editSales', {
                 page_title: "Edit Customers - Node.js",
-                data: rows[0]
+                data: rows[0],
+                products: results
+            });
             });
         });
     });
