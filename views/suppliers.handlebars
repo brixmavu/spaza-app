@@ -1,0 +1,24 @@
+<a href="/suppliers/addSuppliers" class="btn btn-default" role="button"> 
+<span class="glyphicon glyphicon-plus" area-hidden="true"></span> Add Supplier</a>
+<div class="table-responsive">
+<table class ="table table-striped" >
+	<thead>
+		<tr>
+			<th>Suppliers id</th>
+			<th>Suppliers name</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#suppliers}}
+		<tr>
+			<td>{{suppliers_id}}</td>
+			<td>{{suppliers_name}}</td>
+	
+			<td><a href="/suppliers/editSuppliers/{{suppliers_id}}"><span class="glyphicon glyphicon-pencil" area-hidden="true"></span> Edit</a></td>
+			<td><a href="/suppliers/deleteSuppliers/{{suppliers_id}}"><span class="glyphicon glyphicon-trash" area-hidden="true"></span> Delete</a></td>
+		</tr>
+		{{/suppliers}}
+	</tbody>
+	
+</table>
+</div>

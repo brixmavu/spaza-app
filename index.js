@@ -8,6 +8,8 @@ var express = require('express'),
     home = require('./routes/home'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
+    suppliers = require('./routes/suppliers'),
+    categories = require('./routes/categories'),
     purchase = require('./routes/purchase');
 
 var app = express();
@@ -61,6 +63,22 @@ app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:sales_id', sales.delete);
+
+app.get('/categories', categories.showCategories);
+app.get('/categories/addCategories', categories.showAddCategories);
+app.post('/categories/addCategories', categories.addCategories);
+app.get('/categories/editCategories/:category_id', categories.getCategories);
+app.post('/categories/updateCategories/:category_id', categories.updateCategories);
+app.get('/categories/delete/:category_id', categories.delete);
+app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
+
+app.get('/suppliers', suppliers.showSuppliers);
+app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
+app.post('/suppliers/addSuppliers', suppliers.addSuppliers);
+app.get('/suppliers/editSuppliers/:suppliers_id', suppliers.getSuppliers);
+app.post('/suppliers/updateSuppliers/:suppliers_id', suppliers.updateSuppliers);
+app.get('/suppliers/delete/:suppliers_id', suppliers.delete);
+
 
 app.use(errorHandler);
 

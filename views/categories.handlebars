@@ -1,0 +1,18 @@
+<h1>Categories</h1>
+<div class="table-responsive">
+<table class ="table table-striped">
+<thead>
+	<th>Category name</th>
+	<th>Amount</th>
+</thead>
+<tbody>
+{{#each category}}
+	<tr>
+	<td>{{@key}}</td>
+	<td>{{this}}</td>
+	</tr>
+{{/each}}
+</tbody>
+
+</table>
+</div>
