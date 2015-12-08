@@ -1,7 +1,7 @@
 exports.showCategories = function(req, res, next){
 	req.getConnection(function(err, connection){
 		if(err) next(err);
-		connection.query('SELECT * FROM categories', [], function(err, results){
+		connection.query('select * from categories', [], function(err, results){
 			res.render('categories', {
 				no_categories : results.length===0,
 				categories : results
@@ -13,7 +13,7 @@ exports.showCategories = function(req, res, next){
 exports.showAddCategories = function(req, res){
 	req.getConnection(function(err, connection){
 		if(err) return next(err);
-		connection.query('SELECT * FROM categories', [], function(err, categories){
+		connection.query('select * from categories', [], function(err, categories){
 			if(err) return next(err);
 			res.render('addCategories', {
 				categories : categories
@@ -40,7 +40,7 @@ exports.addCategories = function(req, res, next){
 exports.getCategories = function(req, res, next){
 	var category_id = req.params.category_id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM categories WHERE category_id = ?', [category_id], function(err, rows){
+		connection.query('select * from categories where category_id = ?', [category_id], function(err, rows){
 			if(err) return next(err);
 			res.render('editCategories', {page_title:'Edit categories - Node.js', data : rows[0]});
 		});
@@ -51,7 +51,7 @@ exports.updateCategories = function(req, res, next){
 	var data = JSON.parse(JSON.stringify(req.body));
   	var category_id = req.params.category_id;
   	req.getConnection(function(err, connection){
-		connection.query('UPDATE categories SET ? WHERE category_id = ?', [data, category_id], function(err, rows){
+		connection.query('update categories SET ? where category_id = ?', [data, category_id], function(err, rows){
     		if (err) next(err);
           	res.redirect('/categories');
     	});
@@ -61,11 +61,11 @@ exports.updateCategories = function(req, res, next){
 exports.delete = function(req, res, next){
 	var category_id = req.params.category_id;
 	req.getConnection(function(err, connection){
-		connection.query('DELETE FROM categories WHERE category_id = ?', [category_id], function(err,rows){
+		connection.query('delete from categories where category_id = ?', [category_id], function(err,rows){
 			if(err) return next(err);
 			res.redirect('/categories');
 		});
-b	});
+	});
 };
 
 exports.categoriesPopularity = function(req, res, next){

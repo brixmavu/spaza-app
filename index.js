@@ -75,7 +75,7 @@ app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
 app.get('/suppliers', suppliers.showSuppliers);
 app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
 app.post('/suppliers/addSuppliers', suppliers.addSuppliers);
-app.get('/suppliers/editSuppliers/:suppliers_id', suppliers.getSuppliers);
+app.get('/suppliers/updateSuppliers/:suppliers_id', suppliers.getSuppliers);
 app.post('/suppliers/updateSuppliers/:suppliers_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:suppliers_id', suppliers.delete);
 
