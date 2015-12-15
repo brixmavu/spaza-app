@@ -80,6 +80,12 @@ app.post('/suppliers/updateSuppliers/:suppliers_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:suppliers_id', suppliers.delete);
 
 app.get('/purchases', purchase.showPurchase);
+app.get('/purchases/addPurchases', purchase.showAddPurchases);
+app.post('/purchases/addPurchases', purchase.addPurchases);
+/*app.get('/purchases/editPurchases/:purchases_id', purchase.getPurchases);
+app.post('/purchases/updatePurchases/:purchases_id', purchase.updatePurchases);
+//this should be a post but this is only an illustration of CRUD - not on good practices
+app.get('/purchases/delete/:purchases_id', purchase.delete);*/
 
 
 app.use(errorHandler);
