@@ -1,0 +1,11 @@
+<h1>Edit category name</h1>
+
+{{#data}}
+<form action ="/categories/updateCategories/{{category_id}}" method ="POST">
+
+	Enter supplier name: <input type="text" name="category_name" value="{{category_name}}">
+	
+	<input type = "submit">
+	
+</form>
+{{/data}}

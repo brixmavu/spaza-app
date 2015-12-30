@@ -1,7 +1,7 @@
 exports.showCategories = function(req, res, next){
 	req.getConnection(function(err, connection){
 		if(err) next(err);
-		connection.query('select * from categories', [], function(err, results){
+		connection.query('select * from categories order by category_id', [], function(err, results){
 			res.render('categories', {
 				no_categories : results.length===0,
 				categories : results

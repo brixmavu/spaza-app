@@ -80,7 +80,11 @@ app.post('/suppliers/updateSuppliers/:suppliers_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:suppliers_id', suppliers.delete);
 
 app.get('/purchases', purchase.showPurchase);
-
+app.get('/purchases/addPurchases', purchase.showAddPurchase);
+app.post('/purchases/addPurchases', purchase.addPurchase);
+app.get('/purchases/updatePurchases/:purchases_id', purchase.getPurchase);
+app.post('/purchases/updatePurchases/:purchases_id', purchase.updatePurchase);
+app.get('/purchases/delete/:purchases_id', purchase.delete);
 
 app.use(errorHandler);
 
