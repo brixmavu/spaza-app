@@ -68,14 +68,26 @@ exports.delete = function(req, res, next){
 	});
 };
 
-exports.categoriesPopularity = function(req, res, next){
-	var categories_id = req.params.categories_id;
-	req.getConnection(function(err, connection){
-		connection.query( 'select categories.category_name, sum(sales.qty) as qty from sales inner join products on sales.products_id = products.products_id inner join categories on products.category_id = categories.category_id group by categories.category_name order by qty desc', [] , function(err, results) {
-			if(err) return next(err);
-			res.render('categoriesPopularity', {
-				categoriesPopularity: results
-			});
-		});
-	});
+exports.mostPopularCategory = function(req, res, next) {
+    var category_id = req.params.category_id;
+    req.getConnection(function(err, connection) {
+        connection.query('select categories.category_name, sum(sales.qty) as qty from sales inner join products on sales.products_id = products.products_id inner join categories on products.category_id = categories.category_id group by categories.category_name order by qty desc limit 0, 1', [], function(err, results) {
+            if (err) return next(err);
+            res.render('mostPopularCategory',{
+                    mostPopularCategory: results
+            });
+        });
+    });
+};
+
+exports.leastPopularCategory = function(req, res, next) {
+    var category_id = req.params.category_id;
+    req.getConnection(function(err, connection) {
+        connection.query('select categories.category_name, sum(sales.qty) as qty from sales inner join products on sales.products_id = products.products_id inner join categories on products.category_id = categories.category_id group by categories.category_name order by qty asc limit 0, 1;', [], function(err, results) {
+            if (err) return next(err);
+            res.render('leastPopularCategory',{
+                    leastPopularCategory: results
+            });
+        });
+    });
 };

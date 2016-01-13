@@ -1,10 +1,17 @@
 <h1>Add</h1>
 <form class="form-inline" action="/purchases/addPurchases"  method="POST">
-	<label for="date">Date </label>  <input class="form-control input-sm" type="date" date="date" value="{{date}}">
+	<label for="date">Date </label>  <input class="form-control input-sm" type="date" date="sale_date" value="{{date}}">
 
 	<label for="Quantity">Quantity</label> <input class="form-cotrol input-sm" type="number" min="0" quantity="qty" value="{{qty}}">
 
-	<label for="cost Price">Cost Price</label> <input class="form-cotrol input-sm" type="number" min="0" Cost Price="cost_price" value="{{cost_price}}">
+	<label for="Cost Price">Cost Price</label> <input class="form-cotrol input-sm" type="number" min="0" Cost Price="cost_price" value="{{cost_price}}">
+
+	<label for="product">Product</label> 
+	<select class="form-control input-sm" id="">
+		{{#each products}}
+			<option value="{{products_id}}">{{products_name}}</option>
+		{{/each}}
+	</select>
 	
 	<input class="btn btn-default" type="submit">
 </form>

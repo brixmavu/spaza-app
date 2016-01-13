@@ -55,6 +55,8 @@ app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:products_id', products.delete);
+app.get('/products/mostPopularProduct', products.mostPopularProduct);
+app.get('/products/leastPopularProduct', products.leastPopularProduct);
 
 app.get('/sales', sales.showSales);
 app.get('/sales/edit/:sales_id', sales.getSales);
@@ -70,7 +72,8 @@ app.post('/categories/addCategories', categories.addCategories);
 app.get('/categories/editCategories/:category_id', categories.getCategories);
 app.post('/categories/updateCategories/:category_id', categories.updateCategories);
 app.get('/categories/delete/:category_id', categories.delete);
-app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
+app.get('/categories/mostPopularCategory', categories.mostPopularCategory);
+app.get('/categories/leastPopularCategory', categories.leastPopularCategory)
 
 app.get('/suppliers', suppliers.showSuppliers);
 app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
