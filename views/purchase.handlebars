@@ -5,7 +5,7 @@
 	<thead>
 		<tr>
 			<th>Purchase id</th>
-			<th>Product id</th>
+			<th>Product name</th>
 			<th>Date</th>
 			<th>Quantity</th>
 			<th>cost Price</th>
@@ -16,17 +16,17 @@
 		{{#purchase}}
 		<tr>
 			<td>{{purchases_id}}</td>
-			<td>{{products_id}}</td>
+			<td>{{products_name}}</td>
 			<td>{{date}}</td>
 			<td>{{qty}}</td>
 			<td>{{cost_price}}</td>
 			<td>{{suppliers_id}}</td>
-	
+
 			<td><a href="#"><span class="glyphicon glyphicon-pencil" area-hidden="true"></span> Edit</a></td>
 			<td><a href="#"><span class="glyphicon glyphicon-trash" area-hidden="true"></span> Delete</a></td>
 		</tr>
 		{{/purchase}}
 	</tbody>
-	
+
 </table>
 </div>

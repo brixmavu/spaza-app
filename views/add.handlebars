@@ -1,12 +1,12 @@
 <h1>Add</h1>
 <form class="form-inline" action="/products/add"  method="POST">
 	<label for="">Description: </label>  <input class="form-control input-sm" type="text" name="products_name" value="{{products_name}}">
-	
+
 	<select class="form-control input-sm" name="category_id">
 		{{#categories}}
 		<option value="{{category_id}}">{{category_name}}</option>
 		{{/categories}}
 	</select>
-	
+
 	<input class="btn btn-default" type="submit">
 </form>

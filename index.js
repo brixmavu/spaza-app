@@ -5,6 +5,7 @@ var express = require('express'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
+    session = ('require express-session'),
     home = require('./routes/home'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
@@ -21,6 +22,21 @@ var dbOptions = {
     port: 3306,
     database: 'spaza_app'
 };
+
+// app.use(session({
+//     secret: '2C44-4D44-WppQ38S',
+//     resave: true,
+//     saveUninitialized: true
+// }));
+//
+// // Authentication and Authorization Middleware
+// var auth = function(req, res, next) {
+//   if (req.session && req.session.user === "nelisa" && req.session.admin)
+//     return next();
+//   else
+//     return res.sendStatus(401);
+// };
+
 
 //setup template handlebars as the template engine
 app.engine('handlebars', exphbs({
@@ -47,7 +63,7 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', home.home );
+app.get('/', home.login );
 app.get('/products', products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);
