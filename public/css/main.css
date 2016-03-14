@@ -5,3 +5,7 @@ body{
 #myTabContent{
 	margin-top: 20px;
 }
+
+#navvy{
+	background: rgba(255,255,255,0.8);
+}

@@ -5,6 +5,7 @@ var express = require('express'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
+    session = ('require express-session'),
     home = require('./routes/home'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
@@ -21,6 +22,7 @@ var dbOptions = {
     port: 3306,
     database: 'spaza_app'
 };
+
 
 //setup template handlebars as the template engine
 app.engine('handlebars', exphbs({
@@ -47,7 +49,7 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', home.home );
+app.get('/', home.login );
 app.get('/products', products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);

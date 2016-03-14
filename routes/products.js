@@ -96,6 +96,3 @@ exports.leastPopularProduct = function(req, res, next) {
         });
     });
 };
-
-
-

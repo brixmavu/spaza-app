@@ -13,15 +13,15 @@
                   </ul>
                   <div id="myTabContent" class="tab-content">
                     <div class="tab-pane active in" id="login">
-                      <form class="" action='' method="POST">
-                        <fieldset>  
+                      <form class="" action='/login' method="POST">
+                        <fieldset>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                           <div class="form-group">
                             <!-- Username -->
                               <input type="text" id="username" name="username" placeholder="Username" class="form-control input-sm">
                             </div>
                           </div>
-     	
+
      					 <div class="col-xs-6 col-sm-6 col-md-6">
                           <div class="form-group">
                             <!-- Password-->
@@ -29,13 +29,12 @@
                             </div>
                           </div>
                             <!-- Button -->
-                          <input type="submit" value="login" class="btn btn-info btn-block">
-
+                        <input class="btn btn-info btn-block" type="button" value="login" >
                         </fieldset>
-                      </form>                
+                      </form>
                     </div>
                     <div class="tab-pane fade" id="create">
-                      <form role="form" id="tab">
+                      <form role="form" id="tab" action='/register' method="POST">
                       	<div class="row">
     						<div class="col-xs-6 col-sm-6 col-md-6">
         					<div class="form-group">
@@ -72,7 +71,7 @@
 			    				</div>
 			    			</div>
 			    		</div>
-			    			
+
 			    		<input type="submit" value="Register" class="btn btn-info btn-block">
 
                       </form>
@@ -83,5 +82,3 @@
         </div>
 	</div>
 </div>
-
-
