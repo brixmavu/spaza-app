@@ -4,8 +4,8 @@ var express = require('express'),
     exphbs = require('express-handlebars'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
+    session = require('express-session'),
     bodyParser = require('body-parser'),
-    session = ('require express-session'),
     home = require('./routes/home'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
@@ -31,15 +31,58 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
-
-//setup middleware
-app.use(myConnection(mysql, dbOptions, 'single'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
         extended: false
     }))
     // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+app.use(session({
+    secret: 'Codex; go home or go hard',
+    resave: true,
+    saveUninitialized: true
+}));
+
+//setup middleware
+app.use(myConnection(mysql, dbOptions, 'single'));
+
+// Authentication and Authorization Middleware
+var checkUser = function(req, res, next){
+  // if (req.session.user){
+  //   return next();
+  // }
+  // // the user is not logged in redirect them to the login page
+  // res.redirect('login');
+  if (req.session && req.session.user === "brix" && req.session.admin)
+   return next();
+ else
+   //return res.sendStatus(401);
+ res.redirect('/');
+};
+
+// Login endpoint
+app.post('/login', function (req, res) {
+
+  if(req.body.username === "brix" || req.body.password === "password") {
+    req.session.user = "brix";
+    req.session.admin = true;
+    res.redirect('/');
+  }
+  else{
+    res.send('login failed');
+  }
+});
+
+
+
+// Logout endpoint
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+
 
 function errorHandler(err, req, res, next) {
     res.status(500);
@@ -48,9 +91,12 @@ function errorHandler(err, req, res, next) {
     });
 }
 
+
+
 //setup the handlers
-app.get('/', home.login );
-app.get('/products', products.show);
+app.get('/', home.home );
+//app.get('/login', home.login);
+app.get('/products', checkUser, products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);
 app.get('/products/add', products.showAdd);
@@ -60,7 +106,7 @@ app.get('/products/delete/:products_id', products.delete);
 app.get('/products/mostPopularProduct', products.mostPopularProduct);
 app.get('/products/leastPopularProduct', products.leastPopularProduct);
 
-app.get('/sales', sales.showSales);
+app.get('/sales', checkUser, sales.showSales);
 app.get('/sales/edit/:sales_id', sales.getSales);
 app.post('/sales/update/:sales_id', sales.updateSales);
 app.get('/sales/add', sales.showAddSales);
@@ -68,7 +114,7 @@ app.post('/sales/add', sales.addSales);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/sales/delete/:sales_id', sales.delete);
 
-app.get('/categories', categories.showCategories);
+app.get('/categories', checkUser, categories.showCategories);
 app.get('/categories/addCategories', categories.showAddCategories);
 app.post('/categories/addCategories', categories.addCategories);
 app.get('/categories/editCategories/:category_id', categories.getCategories);
@@ -77,14 +123,14 @@ app.get('/categories/delete/:category_id', categories.delete);
 app.get('/categories/mostPopularCategory', categories.mostPopularCategory);
 app.get('/categories/leastPopularCategory', categories.leastPopularCategory)
 
-app.get('/suppliers', suppliers.showSuppliers);
+app.get('/suppliers', checkUser, suppliers.showSuppliers);
 app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
 app.post('/suppliers/addSuppliers', suppliers.addSuppliers);
 app.get('/suppliers/updateSuppliers/:suppliers_id', suppliers.getSuppliers);
 app.post('/suppliers/updateSuppliers/:suppliers_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:suppliers_id', suppliers.delete);
 
-app.get('/purchases', purchase.showPurchase);
+app.get('/purchases', checkUser, purchase.showPurchase);
 app.get('/purchases/addPurchases', purchase.showAddPurchase);
 app.post('/purchases/addPurchases', purchase.addPurchase);
 app.get('/purchases/updatePurchases/:purchases_id', purchase.getPurchase);

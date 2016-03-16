@@ -1,0 +1,30 @@
+{
+  "name": "spaza-app",
+  "version": "1.0.0",
+  "description": "Nelisa runs a spaza shop in Khayelitsha. She heard that you are doing programming and would like some help with her stock information.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.13.0",
+    "handlebars": "^3.0.3",
+    "mysql": "^2.9.0",
+    "nodemon": "^1.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brixmavu/spaza-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brixmavu/spaza-app/issues"
+  },
+  "homepage": "https://github.com/brixmavu/spaza-app#readme"
+}
