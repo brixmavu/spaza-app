@@ -49,40 +49,12 @@ app.use(myConnection(mysql, dbOptions, 'single'));
 
 // Authentication and Authorization Middleware
 var checkUser = function(req, res, next){
-  // if (req.session.user){
-  //   return next();
-  // }
-  // // the user is not logged in redirect them to the login page
-  // res.redirect('login');
   if (req.session && req.session.user === "brix" && req.session.admin)
    return next();
  else
    //return res.sendStatus(401);
- res.redirect('/');
+res.redirect('/');
 };
-
-// Login endpoint
-app.post('/login', function (req, res) {
-
-  if(req.body.username === "brix" || req.body.password === "password") {
-    req.session.user = "brix";
-    req.session.admin = true;
-    res.redirect('/');
-  }
-  else{
-    res.send('login failed');
-  }
-});
-
-
-
-// Logout endpoint
-app.get('/logout', function (req, res) {
-  req.session.destroy();
-  res.redirect('/');
-});
-
-
 
 function errorHandler(err, req, res, next) {
     res.status(500);
@@ -91,9 +63,9 @@ function errorHandler(err, req, res, next) {
     });
 }
 
-
-
 //setup the handlers
+app.post('/login',home.login);
+app.get('/logout',home.logout);
 app.get('/', home.home );
 //app.get('/login', home.login);
 app.get('/products', checkUser, products.show);
@@ -103,8 +75,8 @@ app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:products_id', products.delete);
-app.get('/products/mostPopularProduct', products.mostPopularProduct);
-app.get('/products/leastPopularProduct', products.leastPopularProduct);
+app.get('/products/mostPopularProduct', checkUser, products.mostPopularProduct);
+app.get('/products/leastPopularProduct', checkUser,products.leastPopularProduct);
 
 app.get('/sales', checkUser, sales.showSales);
 app.get('/sales/edit/:sales_id', sales.getSales);
