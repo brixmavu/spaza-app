@@ -46,11 +46,10 @@
 	products_id int(30) NOT NULL
 	);
 
-	DROP TABLE IF EXISTS members;
-	CREATE TABLE members (
-		members_id int(11) NOT NULL AUTO_INCREMENT ,
+	DROP TABLE IF EXISTS users;
+	CREATE TABLE users (
+		users_id int(11) NOT NULL AUTO_INCREMENT ,
 		username varchar(30) NOT NULL ,
-		email varchar(50) NOT NULL ,
 		password varchar(128) NOT NULL,
-		PRIMARY KEY (members_id)
+		PRIMARY KEY (users_id)
 	);

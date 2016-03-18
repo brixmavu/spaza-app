@@ -47,8 +47,16 @@ app.use(session({
 //setup middleware
 app.use(myConnection(mysql, dbOptions, 'single'));
 
+//roles
+// var rolesMap = {
+//    "brix" : "admin"
+// }
+
 // Authentication and Authorization Middleware
 var checkUser = function(req, res, next){
+  console.log(req.session.user);
+  console.log(req.session);
+  console.log(req.session.admin);
   if (req.session && req.session.user === "brix" && req.session.admin)
    return next();
  else
