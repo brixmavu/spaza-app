@@ -1,9 +1,10 @@
-{
+9{
   "name": "spaza-app",
   "version": "1.0.0",
   "description": "Nelisa runs a spaza shop in Khayelitsha. She heard that you are doing programming and would like some help with her stock information.",
   "main": "index.js",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",

@@ -54,14 +54,11 @@ app.use(myConnection(mysql, dbOptions, 'single'));
 
 // Authentication and Authorization Middleware
 var checkUser = function(req, res, next){
-  console.log(req.session.user);
-  console.log(req.session);
-  console.log(req.session.admin);
-  if (req.session && req.session.user === "brix" && req.session.admin)
+  if (req.session.user)
    return next();
  else
-   //return res.sendStatus(401);
-res.redirect('/');
+   return res.sendStatus(401);
+//res.redirect('/');
 };
 
 function errorHandler(err, req, res, next) {
@@ -72,10 +69,11 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
+app.get('/register', home.user);
+app.post('/register', home.user);
 app.post('/login',home.login);
 app.get('/logout',home.logout);
 app.get('/', home.home );
-//app.get('/login', home.login);
 app.get('/products', checkUser, products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);

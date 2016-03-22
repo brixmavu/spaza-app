@@ -51,5 +51,6 @@
 		users_id int(11) NOT NULL AUTO_INCREMENT ,
 		username varchar(30) NOT NULL ,
 		password varchar(128) NOT NULL,
+		role enum('admin', 'user'),
 		PRIMARY KEY (users_id)
 	);
