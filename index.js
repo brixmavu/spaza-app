@@ -69,7 +69,6 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/register', home.user);
 app.post('/register', home.user);
 app.post('/login',home.login);
 app.get('/logout',home.logout);
@@ -122,5 +121,5 @@ var portNumber = process.env.CRUD_PORT_NR || 3001;
 
 //start everything up
 app.listen(portNumber, function() {
-    console.log('Create, Read, Update, and Delete (CRUD) server listening on:', portNumber);
+    console.log('Nelisa spaza server listening on:', portNumber);
 });

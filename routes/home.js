@@ -5,7 +5,6 @@ exports.home = function (req, res) {
 res.render('home');
 }
 
-
 //aadding users
 exports.user = function (req, res, next) {
   req.getConnection(function () {
@@ -15,17 +14,26 @@ exports.user = function (req, res, next) {
       password : input.password,
       role: "user"
     };
-    var hash = bcrypt.hashSync(input.password, 10);
+    bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(input.password, salt, function(err, hash) {
+           // Store hash in your password DB.
+           data.password = hash;
+           connection.query('insert into users set ?', [data], function(err, results) {
+                if (err) return next(err);
+                res.redirect('/');
+              });
+       });
+   });
+
   });
 
-}
+};
 
 //Login endpoint
 exports.login = function(req, res, next){
 	req.getConnection(function(err, connection){
 		var input = JSON.parse(JSON.stringify(req.body));
 		var username = input.username;
-
 		if(err){
 			return next(err);
 		};
@@ -36,7 +44,7 @@ exports.login = function(req, res, next){
 			};
 
 			var user = users[0];
-			bcrypt.compareSync(input.password, user.password, function(err, pass){
+			bcrypt.compare(input.password, user.password, function(err, pass){
 				if(err){
 					next(err)
 				};
