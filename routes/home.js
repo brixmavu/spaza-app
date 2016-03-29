@@ -2,7 +2,7 @@ var bcrypt = require('bcryptjs');
 
 
 exports.home = function (req, res) {
-res.render('home');
+res.render('home', {user: req.session.username, role: req.session.role, id: req.session.users_id});
 }
 
 //aadding users
