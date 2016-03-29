@@ -7,7 +7,7 @@ res.render('home');
 
 //aadding users
 exports.user = function (req, res, next) {
-  req.getConnection(function () {
+  req.getConnection(function (err, connection) {
     var input = JSON.parse(JSON.stringify(req.body));
     var data = {
       username : input.username,
@@ -39,8 +39,8 @@ exports.login = function(req, res, next){
 		};
 		connection.query('select * from users where username = ?', username, function(err, users){
 			if(users[0] === undefined){
-				//return res.redirect('/');
-        return res.sendStatus(401);
+				return res.redirect('/');
+        //return res.sendStatus(401);
 			};
 
 			var user = users[0];
