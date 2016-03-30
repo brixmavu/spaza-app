@@ -11,7 +11,8 @@ var express = require('express'),
     sales = require('./routes/sales'),
     suppliers = require('./routes/suppliers'),
     categories = require('./routes/categories'),
-    purchase = require('./routes/purchase');
+    purchase = require('./routes/purchase'),
+    search = require('./routes/search');
 
 var app = express();
 
@@ -73,6 +74,7 @@ app.post('/register', home.user);
 app.post('/login',home.login);
 app.get('/logout',home.logout);
 app.get('/', home.home );
+app.post('/search', search.search);
 app.get('/products', checkUser, products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);
