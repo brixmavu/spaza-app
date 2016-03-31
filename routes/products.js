@@ -6,6 +6,7 @@ exports.show = function(req, res, next) {
             res.render('products', {
                 no_products: results.length === 0,
                 products: results,
+                user: req.session.user
             });
         });
     });
@@ -16,7 +17,8 @@ exports.showAdd = function(req, res) {
     req.getConnection(function(err, connection) {
         connection.query('SELECT * from categories', [], function(err, categories) {
             res.render('add', {
-                categories: categories
+                categories: categories,
+                user: req.session.user
             });
         });
     });
@@ -79,7 +81,8 @@ exports.mostPopularProduct = function(req, res, next) {
         connection.query('select products.products_name, sum(sales.qty) as qty from sales inner join products on sales.products_id = products.products_id group by products.products_name order by qty desc limit 1', [], function(err, results) {
             if (err) return next(err);
             res.render('mostPopularProduct',{
-                    mostPopularProduct: results
+                    mostPopularProduct: results,
+                    user: req.session.user
             });
         });
     });
@@ -91,7 +94,8 @@ exports.leastPopularProduct = function(req, res, next) {
         connection.query('select products.products_name, sum(sales.qty) as qty from sales inner join products on sales.products_id = products.products_id group by products.products_name order by qty asc limit 1', [], function(err, results) {
             if (err) return next(err);
             res.render('leastPopularProduct',{
-                    leastPopularProduct: results
+                    leastPopularProduct: results,
+                    user: req.session.user
             });
         });
     });

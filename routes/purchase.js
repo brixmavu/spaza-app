@@ -6,6 +6,7 @@ exports.showPurchase = function(req, res, next) {
             res.render('purchase', {
                 no_purchase: results.length === 0,
                 purchase: results,
+                user: req.session.user
             });
         });
     });
@@ -19,7 +20,8 @@ exports.showAddPurchase = function(req, res, next) {
             if (err) return next(err);
             res.render('addPurchase', {
                 products: products,
-                suppliers: suppliers
+                suppliers: suppliers,
+                user: req.session.user
             });
         });
         });

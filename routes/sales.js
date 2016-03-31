@@ -4,7 +4,8 @@ exports.showSales = function(req, res, next) {
         connection.query('SELECT * FROM sales, products WHERE sales.products_id = products.products_id', [], function(err, results) {
                         res.render('sales', {
                 no_sales: results.length === 0,
-                sales: results
+                sales: results,
+                user: req.session.user
             });
         });
     });
@@ -17,7 +18,8 @@ exports.showAddSales = function(req, res, next) {
             /*console.log("Products", products);*/
             if (err) return next(err);
             res.render('addSales', {
-                products: products
+                products: products,
+                user: req.session.user
             });
         });
     });

@@ -4,7 +4,8 @@ exports.showCategories = function(req, res, next){
 		connection.query('select * from categories order by category_id', [], function(err, results){
 			res.render('categories', {
 				no_categories : results.length===0,
-				categories : results
+				categories : results,
+				user: req.session.user
 			});
 		});
 	});
@@ -16,7 +17,8 @@ exports.showAddCategories = function(req, res){
 		connection.query('select * from categories', [], function(err, categories){
 			if(err) return next(err);
 			res.render('addCategories', {
-				categories : categories
+				categories : categories,
+				user: req.session.user
 			});
 		});
 	});

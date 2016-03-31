@@ -4,7 +4,8 @@ exports.showSuppliers = function(req, res, next){
 		connection.query('select * from suppliers order by suppliers_id', [], function(err, results){
 			res.render('suppliers',{
 				no_suppliers : results.length===0,
-				suppliers : results
+				suppliers : results,
+				user: req.session.user
 			});
 		});
 	});
@@ -16,7 +17,8 @@ exports.showAddSuppliers = function(req, res){
 		connection.query('select * from suppliers', [], function(err, suppliers){
 			if(err) return next(err);
 			res.render('addSuppliers', {
-				suppliers : suppliers
+				suppliers : suppliers,
+				user: req.session.user
 			});
 		});
 	});
