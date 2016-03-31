@@ -1,7 +1,7 @@
 exports.search = function (req, res) {
-  var key = "%"+req.query.key+ "%";
+  var key = "%" +req.body.key+ "%";
   console.log(key);
-  connection.query('SELECT products_name from products where products_name like?  ' , key,
+  connection.query('SELECT products_name from products where products_name like ?' , key,
       function(err, rows, fields) {
         if (err) throw err;
         var data=[];

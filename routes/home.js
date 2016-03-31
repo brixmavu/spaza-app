@@ -2,7 +2,7 @@ var bcrypt = require('bcryptjs');
 
 
 exports.home = function (req, res) {
-res.render('home', {user: req.session.username, role: req.session.role, id: req.session.users_id});
+res.render('home', {user: req.session.user, role: req.session.role});
 }
 
 //aadding users
@@ -40,7 +40,6 @@ exports.login = function(req, res, next){
 		connection.query('select * from users where username = ?', username, function(err, users){
 			if(users[0] === undefined){
 				return res.redirect('/');
-        //return res.sendStatus(401);
 			};
 
 			var user = users[0];
@@ -55,8 +54,8 @@ exports.login = function(req, res, next){
 					return res.redirect('/');
 				}
 				else {
-					//res.redirect('/');
-          return res.sendStatus(401);
+					res.redirect('/');
+          //return res.sendStatus(401);
 				};
 			});
 		});
