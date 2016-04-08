@@ -55,7 +55,6 @@ exports.login = function(req, res, next){
 				}
 				else {
 					res.redirect('/');
-          //return res.sendStatus(401);
 				};
 			});
 		});

@@ -5,7 +5,8 @@ exports.showCategories = function(req, res, next){
 			res.render('categories', {
 				no_categories : results.length===0,
 				categories : results,
-				user: req.session.user
+				user: req.session.user,
+				route : req.path
 			});
 		});
 	});

@@ -5,7 +5,8 @@ exports.showSuppliers = function(req, res, next){
 			res.render('suppliers',{
 				no_suppliers : results.length===0,
 				suppliers : results,
-				user: req.session.user
+				user: req.session.user,
+				route : req.path
 			});
 		});
 	});

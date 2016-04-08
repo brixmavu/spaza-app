@@ -3,14 +3,14 @@ exports.search = function (req, res, next) {
     if (err) {
       return next(err);
     };
-    var searchItem = req.param.searchItem;
+    var searchItem = req.body.searchItem;
     searchItem = "%" + searchItem + "%";
-
-    connection.query("select products_id, products_name from products where products_name like ?",[searchItem], function (err, results) {
+    connection.query("select products_name, category_name from categories, products where categories.category_id = products.category_id AND (products_name LIKE ? OR category_name LIKE ?)",[searchItem, searchItem], function (err, results) {
        if(err){
          return next(err);
        };
-       res.render("search", {
+
+       res.render('search', {
          products: results,
          user: req.session.user
        });

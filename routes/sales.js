@@ -5,7 +5,9 @@ exports.showSales = function(req, res, next) {
                         res.render('sales', {
                 no_sales: results.length === 0,
                 sales: results,
-                user: req.session.user
+                user: req.session.user,
+                route : req.path
+
             });
         });
     });

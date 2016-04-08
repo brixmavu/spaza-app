@@ -6,7 +6,8 @@ exports.showPurchase = function(req, res, next) {
             res.render('purchase', {
                 no_purchase: results.length === 0,
                 purchase: results,
-                user: req.session.user
+                user: req.session.user,
+                route : req.path
             });
         });
     });

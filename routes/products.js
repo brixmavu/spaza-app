@@ -6,7 +6,8 @@ exports.show = function(req, res, next) {
             res.render('products', {
                 no_products: results.length === 0,
                 products: results,
-                user: req.session.user
+                user: req.session.user,
+                route : req.path
             });
         });
     });
