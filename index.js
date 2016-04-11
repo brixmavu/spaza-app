@@ -73,7 +73,8 @@ app.post('/register', home.user);
 app.post('/login',home.login);
 app.get('/logout',home.logout);
 app.get('/', home.home );
-app.post('/search', search.search);
+app.post('/search', checkUser,search.search);
+
 app.get('/products', checkUser, products.show);
 app.get('/products/edit/:products_id', products.get);
 app.post('/products/update/:products_id', products.update);
