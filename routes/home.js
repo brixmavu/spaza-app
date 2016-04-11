@@ -12,7 +12,7 @@ exports.user = function (req, res, next) {
     var data = {
       username : input.username,
       password : input.password,
-      role: input.role
+      role: "user"
     };
     bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(input.password, salt, function(err, hash) {
