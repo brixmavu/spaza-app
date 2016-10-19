@@ -25,7 +25,7 @@
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+         {{#if user}}
         <ul class="nav navbar-nav">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
@@ -85,7 +85,13 @@
                 </button>
 
                 <a class="btn btn-default btn-xsm pull-right" href="/logout" role="button"><span class="glyphicon glyphicon-log-out"> Logout</span></a>
+
+                {{else}}
+
+                <a href="/register">Sign In</a>
+
       </div><!-- /.navbar-collapse -->
+      {{/if}}
     </div><!-- /.container-fluid -->
   </nav>
         <div id="cointainer">
