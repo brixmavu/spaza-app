@@ -20,7 +20,7 @@ exports.user = function (req, res, next) {
            data.password = hash;
            connection.query('insert into users set ?', [data], function(err, results) {
                 if (err) return next(err);
-                res.redirect('/products');
+                res.redirect('/');
               });
        });
    });
@@ -51,7 +51,7 @@ exports.login = function(req, res, next){
 				if(pass){
 					req.session.user = username;
 					req.session.role = user.role;
-					return res.redirect('/');
+					return res.redirect('/products');
 				}
 				else {
 					res.redirect('/');
