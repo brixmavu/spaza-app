@@ -51,7 +51,7 @@ exports.login = function(req, res, next){
 				if(pass){
 					req.session.user = username;
 					req.session.role = user.role;
-					return res.redirect('/products');
+					return res.redirect('/');
 				}
 				else {
 					res.redirect('/');
